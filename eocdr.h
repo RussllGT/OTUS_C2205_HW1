@@ -1,3 +1,4 @@
+#include<stdbool.h>
 #include <stdint.h> 
 
 #ifndef EOCDR_H
@@ -22,9 +23,10 @@ typedef struct
 /// <summary>
 /// Функция поиска конца записи центрального каталога
 /// </summary>
+/// <param name="eocdr">Указатель на структуру конца записи центрального каталога</param>
 /// <param name="start_ptr">Указатель на начало буфера</param>
 /// <param name="end_ptr">Указатель на конец буфера</param>
-/// <returns>Указатель на структуру конца записи центрального каталога</returns>
-eocdr_t* eocdr_find(const uint8_t* start_ptr, const uint8_t* end_ptr);
+/// <returns>Удалось ли найти конец записи центрального каталога</returns>
+bool eocdr_find(eocdr_t*  eocdr, const uint8_t* start_ptr, const uint8_t* end_ptr);
 
 #endif
