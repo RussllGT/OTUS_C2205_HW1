@@ -5,9 +5,9 @@
 uint8_t* cdfh_find(cdfh_t* cdfh, uint8_t* ptr)
 {
     uint32_t signature = 0;
-    READ32(signature, ptr); // Чтение сигнатуры
+    READ32(signature, ptr); // Р§С‚РµРЅРёРµ СЃРёРіРЅР°С‚СѓСЂС‹
 
-    if (signature == CDFH_SIGNATURE) // При совпадении сигнатуры данные последовательно читаются в структуру
+    if (signature == CDFH_SIGNATURE) // РџСЂРё СЃРѕРІРїР°РґРµРЅРёРё СЃРёРіРЅР°С‚СѓСЂС‹ РґР°РЅРЅС‹Рµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ С‡РёС‚Р°СЋС‚СЃСЏ РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ
     {
         READ32S(cdfh->signature, ptr);
         READ16S(cdfh->versionMadeBy, ptr);
@@ -30,8 +30,8 @@ uint8_t* cdfh_find(cdfh_t* cdfh, uint8_t* ptr)
         READPTR(cdfh->extraField, ptr, cdfh->extraFieldLength);
         READPTR(cdfh->fileComment, ptr, cdfh->fileCommentLength);
 
-        return ptr; // Возврат указателся смещенного к области после прочитанных данных
+        return ptr; // Р’РѕР·РІСЂР°С‚ СѓРєР°Р·Р°С‚РµР»СЃСЏ СЃРјРµС‰РµРЅРЅРѕРіРѕ Рє РѕР±Р»Р°СЃС‚Рё РїРѕСЃР»Рµ РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… РґР°РЅРЅС‹С…
     }
 
-    return NULL; // При несовпадении сигнатуры возврат нулевого указателя
+    return NULL; // РџСЂРё РЅРµСЃРѕРІРїР°РґРµРЅРёРё СЃРёРіРЅР°С‚СѓСЂС‹ РІРѕР·РІСЂР°С‚ РЅСѓР»РµРІРѕРіРѕ СѓРєР°Р·Р°С‚РµР»СЏ
 }

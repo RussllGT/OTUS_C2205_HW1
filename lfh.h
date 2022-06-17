@@ -3,32 +3,32 @@
 #ifndef LFH_H
 #define LFH_H
 
-#define LFH_BASE_SZ 30 // Размер структуры в байтах без учета указателей
-#define LFH_SIGNATURE 0x04034b50 //Сигнатура
+#define LFH_BASE_SZ 30 // Р Р°Р·РјРµСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹ РІ Р±Р°Р№С‚Р°С… Р±РµР· СѓС‡РµС‚Р° СѓРєР°Р·Р°С‚РµР»РµР№
+#define LFH_SIGNATURE 0x04034b50 //РЎРёРіРЅР°С‚СѓСЂР°
 
 typedef struct
 {
-    uint32_t signature; // Обязательная сигнатура, равна 0x04034b50
-    uint16_t versionToExtract; // Минимальная версия для распаковки
-    uint16_t generalPurposeBitFlag; // Битовый флаг
-    uint16_t compressionMethod; // Метод сжатия (0 - без сжатия, 8 - deflate)
-    uint16_t modificationTime; // Время модификации файла
-    uint16_t modificationDate; // Дата модификации файла
-    uint32_t crc32; // Контрольная сумма
-    uint32_t compressedSize; // Сжатый размер
-    uint32_t uncompressedSize; // Несжатый размер
-    uint16_t filenameLength; // Длина название файла
-    uint16_t extraFieldLength; // Длина поля с дополнительными данными
-    uint8_t* filename; // Название файла (размером filenameLength)
-    uint8_t* extraField; // Дополнительные данные (размером extraFieldLength)
+    uint32_t signature; // РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ СЃРёРіРЅР°С‚СѓСЂР°, СЂР°РІРЅР° 0x04034b50
+    uint16_t versionToExtract; // РњРёРЅРёРјР°Р»СЊРЅР°СЏ РІРµСЂСЃРёСЏ РґР»СЏ СЂР°СЃРїР°РєРѕРІРєРё
+    uint16_t generalPurposeBitFlag; // Р‘РёС‚РѕРІС‹Р№ С„Р»Р°Рі
+    uint16_t compressionMethod; // РњРµС‚РѕРґ СЃР¶Р°С‚РёСЏ (0 - Р±РµР· СЃР¶Р°С‚РёСЏ, 8 - deflate)
+    uint16_t modificationTime; // Р’СЂРµРјСЏ РјРѕРґРёС„РёРєР°С†РёРё С„Р°Р№Р»Р°
+    uint16_t modificationDate; // Р”Р°С‚Р° РјРѕРґРёС„РёРєР°С†РёРё С„Р°Р№Р»Р°
+    uint32_t crc32; // РљРѕРЅС‚СЂРѕР»СЊРЅР°СЏ СЃСѓРјРјР°
+    uint32_t compressedSize; // РЎР¶Р°С‚С‹Р№ СЂР°Р·РјРµСЂ
+    uint32_t uncompressedSize; // РќРµСЃР¶Р°С‚С‹Р№ СЂР°Р·РјРµСЂ
+    uint16_t filenameLength; // Р”Р»РёРЅР° РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°
+    uint16_t extraFieldLength; // Р”Р»РёРЅР° РїРѕР»СЏ СЃ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РјРё РґР°РЅРЅС‹РјРё
+    uint8_t* filename; // РќР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° (СЂР°Р·РјРµСЂРѕРј filenameLength)
+    uint8_t* extraField; // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ (СЂР°Р·РјРµСЂРѕРј extraFieldLength)
 } lfh_t;
 
 /// <summary>
-/// Функция поиска начала архива
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РЅР°С‡Р°Р»Р° Р°СЂС…РёРІР°
 /// </summary>
-/// <param name="start_ptr">Указатель на начало буфера</param>
-/// <param name="end_ptr">Указатель на конец буфера</param>
-/// <returns>Указатель на начало архива</returns>
+/// <param name="start_ptr">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ Р±СѓС„РµСЂР°</param>
+/// <param name="end_ptr">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС† Р±СѓС„РµСЂР°</param>
+/// <returns>РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ Р°СЂС…РёРІР°</returns>
 uint8_t* get_zip_start_ptr(uint8_t* start_ptr, uint8_t* end_ptr);
 
 #endif

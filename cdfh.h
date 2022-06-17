@@ -3,39 +3,39 @@
 #ifndef CDFH_H
 #define CDFH_H
 
-#define CDFH_BASE_SZ 46 // Размер структуры в байтах без учета указателей
-#define CDFH_SIGNATURE 0x02014b50 //Сигнатура
+#define CDFH_BASE_SZ 46 // Р Р°Р·РјРµСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹ РІ Р±Р°Р№С‚Р°С… Р±РµР· СѓС‡РµС‚Р° СѓРєР°Р·Р°С‚РµР»РµР№
+#define CDFH_SIGNATURE 0x02014b50 //РЎРёРіРЅР°С‚СѓСЂР°
 
 typedef struct
 {
-    uint32_t signature; // Обязательная сигнатура, равна 0x02014b50 
-    uint16_t versionMadeBy; // Версия для создания
-    uint16_t versionToExtract; // Минимальная версия для распаковки
-    uint16_t generalPurposeBitFlag; // Битовый флаг
-    uint16_t compressionMethod; // Метод сжатия (0 - без сжатия, 8 - deflate)
-    uint16_t modificationTime; // Время модификации файла
-    uint16_t modificationDate; // Дата модификации файла
-    uint32_t crc32; // Контрольная сумма
-    uint32_t compressedSize; // Сжатый размер
-    uint32_t uncompressedSize; // Несжатый размер
-    uint16_t filenameLength; // Длина название файла
-    uint16_t extraFieldLength; // Длина поля с дополнительными данными
-    uint16_t fileCommentLength; // Длина комментариев к файлу
-    uint16_t diskNumber; // Номер диска
-    uint16_t internalFileAttributes; // Внутренние аттрибуты файла
-    uint32_t externalFileAttributes; // Внешние аттрибуты файла
-    uint32_t localFileHeaderOffset; // Смещение до структуры LocalFileHeader
-    uint8_t* filename; // Имя файла (длиной filenameLength)
-    uint8_t* extraField; // Дополнительные данные (длиной extraFieldLength)
-    uint8_t* fileComment; // Комментарий к файла (длиной fileCommentLength)
+    uint32_t signature; // РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ СЃРёРіРЅР°С‚СѓСЂР°, СЂР°РІРЅР° 0x02014b50 
+    uint16_t versionMadeBy; // Р’РµСЂСЃРёСЏ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ
+    uint16_t versionToExtract; // РњРёРЅРёРјР°Р»СЊРЅР°СЏ РІРµСЂСЃРёСЏ РґР»СЏ СЂР°СЃРїР°РєРѕРІРєРё
+    uint16_t generalPurposeBitFlag; // Р‘РёС‚РѕРІС‹Р№ С„Р»Р°Рі
+    uint16_t compressionMethod; // РњРµС‚РѕРґ СЃР¶Р°С‚РёСЏ (0 - Р±РµР· СЃР¶Р°С‚РёСЏ, 8 - deflate)
+    uint16_t modificationTime; // Р’СЂРµРјСЏ РјРѕРґРёС„РёРєР°С†РёРё С„Р°Р№Р»Р°
+    uint16_t modificationDate; // Р”Р°С‚Р° РјРѕРґРёС„РёРєР°С†РёРё С„Р°Р№Р»Р°
+    uint32_t crc32; // РљРѕРЅС‚СЂРѕР»СЊРЅР°СЏ СЃСѓРјРјР°
+    uint32_t compressedSize; // РЎР¶Р°С‚С‹Р№ СЂР°Р·РјРµСЂ
+    uint32_t uncompressedSize; // РќРµСЃР¶Р°С‚С‹Р№ СЂР°Р·РјРµСЂ
+    uint16_t filenameLength; // Р”Р»РёРЅР° РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°
+    uint16_t extraFieldLength; // Р”Р»РёРЅР° РїРѕР»СЏ СЃ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РјРё РґР°РЅРЅС‹РјРё
+    uint16_t fileCommentLength; // Р”Р»РёРЅР° РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ Рє С„Р°Р№Р»Сѓ
+    uint16_t diskNumber; // РќРѕРјРµСЂ РґРёСЃРєР°
+    uint16_t internalFileAttributes; // Р’РЅСѓС‚СЂРµРЅРЅРёРµ Р°С‚С‚СЂРёР±СѓС‚С‹ С„Р°Р№Р»Р°
+    uint32_t externalFileAttributes; // Р’РЅРµС€РЅРёРµ Р°С‚С‚СЂРёР±СѓС‚С‹ С„Р°Р№Р»Р°
+    uint32_t localFileHeaderOffset; // РЎРјРµС‰РµРЅРёРµ РґРѕ СЃС‚СЂСѓРєС‚СѓСЂС‹ LocalFileHeader
+    uint8_t* filename; // РРјСЏ С„Р°Р№Р»Р° (РґР»РёРЅРѕР№ filenameLength)
+    uint8_t* extraField; // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ (РґР»РёРЅРѕР№ extraFieldLength)
+    uint8_t* fileComment; // РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє С„Р°Р№Р»Р° (РґР»РёРЅРѕР№ fileCommentLength)
 } cdfh_t;
 
 /// <summary>
-/// Извлечение структуры центрального каталога
+/// РР·РІР»РµС‡РµРЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°
 /// </summary>
-/// <param name="cdfh">Указатель на структуру центрального каталога в которой будет сохранена информация</param>
-/// <param name="ptr">Указатель на начало данных в буфере, откуда будет читаться структура</param>
-/// <returns>Указатель на область после окончания данных в буфере</returns>
+/// <param name="cdfh">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР° РІ РєРѕС‚РѕСЂРѕР№ Р±СѓРґРµС‚ СЃРѕС…СЂР°РЅРµРЅР° РёРЅС„РѕСЂРјР°С†РёСЏ</param>
+/// <param name="ptr">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РґР°РЅРЅС‹С… РІ Р±СѓС„РµСЂРµ, РѕС‚РєСѓРґР° Р±СѓРґРµС‚ С‡РёС‚Р°С‚СЊСЃСЏ СЃС‚СЂСѓРєС‚СѓСЂР°</param>
+/// <returns>РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±Р»Р°СЃС‚СЊ РїРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ РґР°РЅРЅС‹С… РІ Р±СѓС„РµСЂРµ</returns>
 uint8_t* cdfh_find(cdfh_t* cdfh, uint8_t* ptr);
 
 #endif

@@ -1,0 +1,25 @@
+﻿  cdfh.c
+D:\Programming\C\OTUS_C2205\HW1_L3\cdfh.h(26,36): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'internalFileAttributes'
+  eocdr.c
+D:\Programming\C\OTUS_C2205\HW1_L3\eocdr.h(19,21): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'commentLength'
+D:\Programming\C\OTUS_C2205\HW1_L3\eocdr.c(27,13): warning C4090: '=': different 'const' qualifiers
+  lfh.c
+D:\Programming\C\OTUS_C2205\HW1_L3\lfh.h(17,19): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'modificationDate'
+D:\Programming\C\OTUS_C2205\HW1_L3\lfh.c(4,43): warning C4028: formal parameter 1 different from declaration
+D:\Programming\C\OTUS_C2205\HW1_L3\lfh.c(10,57): warning C4090: 'return': different 'const' qualifiers
+  main.c
+D:\Programming\C\OTUS_C2205\HW1_L3\eocdr.h(19,21): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'commentLength'
+D:\Programming\C\OTUS_C2205\HW1_L3\cdfh.h(26,36): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'internalFileAttributes'
+D:\Programming\C\OTUS_C2205\HW1_L3\lfh.h(17,19): warning C4820: '<unnamed-tag>': '2' bytes padding added after data member 'modificationDate'
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(45,23): warning C4388: '<': signed/unsigned mismatch
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(45,49): warning C4242: '=': conversion from 'int' to 'uint8_t', possible loss of data
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(68,23): warning C4456: declaration of 'len' hides previous local declaration
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(40,12): message : see declaration of 'len'
+  Generating Code...
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(66): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(64): message : index 'i' range checked by comparison on this line
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(66): message : feeds call on this line
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(45): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(45): message : index '' range checked by comparison on this line
+D:\Programming\C\OTUS_C2205\HW1_L3\main.c(45): message : feeds call on this line
+  01_Lesson_3.vcxproj -> D:\Programming\C\OTUS_C2205\HW1_L3\x64\Debug\01_Lesson_3.exe

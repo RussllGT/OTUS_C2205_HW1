@@ -3,28 +3,28 @@
 #ifndef EOCDR_H
 #define EOCDR_H
 
-#define EOCDR_BASE_SZ 22 // Размер структуры в байтах без учета указателей
-#define EOCDR_SIGNATURE 0x06054b50 //Сигнатура
+#define EOCDR_BASE_SZ 22 // Р Р°Р·РјРµСЂ СЃС‚СЂСѓРєС‚СѓСЂС‹ РІ Р±Р°Р№С‚Р°С… Р±РµР· СѓС‡РµС‚Р° СѓРєР°Р·Р°С‚РµР»РµР№
+#define EOCDR_SIGNATURE 0x06054b50 //РЎРёРіРЅР°С‚СѓСЂР°
 
 typedef struct
 {
-    uint32_t signature; // Обязательная сигнатура, равна 0x06054b50
-    uint16_t diskNumber; // Номер диска
-    uint16_t startDiskNumber; // Номер диска, где находится начало Central Directory
-    uint16_t numberCentralDirectoryRecord; // Количество записей в Central Directory в текущем диске
-    uint16_t totalCentralDirectoryRecord; // Всего записей в Central Directory
-    uint32_t sizeOfCentralDirectory; // Размер Central Directory
-    uint32_t centralDirectoryOffset; // Смещение Central Directory
-    uint16_t commentLength; // Длина комментария
-    uint8_t* comment; // Комментарий (длиной commentLength)
+    uint32_t signature; // РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ СЃРёРіРЅР°С‚СѓСЂР°, СЂР°РІРЅР° 0x06054b50
+    uint16_t diskNumber; // РќРѕРјРµСЂ РґРёСЃРєР°
+    uint16_t startDiskNumber; // РќРѕРјРµСЂ РґРёСЃРєР°, РіРґРµ РЅР°С…РѕРґРёС‚СЃСЏ РЅР°С‡Р°Р»Рѕ Central Directory
+    uint16_t numberCentralDirectoryRecord; // РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ РІ Central Directory РІ С‚РµРєСѓС‰РµРј РґРёСЃРєРµ
+    uint16_t totalCentralDirectoryRecord; // Р’СЃРµРіРѕ Р·Р°РїРёСЃРµР№ РІ Central Directory
+    uint32_t sizeOfCentralDirectory; // Р Р°Р·РјРµСЂ Central Directory
+    uint32_t centralDirectoryOffset; // РЎРјРµС‰РµРЅРёРµ Central Directory
+    uint16_t commentLength; // Р”Р»РёРЅР° РєРѕРјРјРµРЅС‚Р°СЂРёСЏ
+    uint8_t* comment; // РљРѕРјРјРµРЅС‚Р°СЂРёР№ (РґР»РёРЅРѕР№ commentLength)
 } eocdr_t;
 
 /// <summary>
-/// Функция поиска конца записи центрального каталога
+/// Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РєРѕРЅС†Р° Р·Р°РїРёСЃРё С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°
 /// </summary>
-/// <param name="start_ptr">Указатель на начало буфера</param>
-/// <param name="end_ptr">Указатель на конец буфера</param>
-/// <returns>Указатель на структуру конца записи центрального каталога</returns>
+/// <param name="start_ptr">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ Р±СѓС„РµСЂР°</param>
+/// <param name="end_ptr">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєРѕРЅРµС† Р±СѓС„РµСЂР°</param>
+/// <returns>РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ РєРѕРЅС†Р° Р·Р°РїРёСЃРё С†РµРЅС‚СЂР°Р»СЊРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР°</returns>
 eocdr_t* eocdr_find(const uint8_t* start_ptr, const uint8_t* end_ptr);
 
 #endif
