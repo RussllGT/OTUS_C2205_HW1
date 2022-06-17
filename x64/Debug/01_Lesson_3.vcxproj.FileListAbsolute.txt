@@ -1,1 +1,2 @@
 D:\Programming\C\OTUS_C2205\HW1_L3\x64\Debug\01_Lesson_3.exe
+D:\Programming\C\OTUS_C2205\HW1\x64\Debug\01_Lesson_3.exe

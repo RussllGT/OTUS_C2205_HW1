@@ -1,0 +1,12 @@
+﻿  cdfh.c
+  eocdr.c
+D:\Programming\C\OTUS_C2205\HW1\eocdr.c(27,13): warning C4090: '=': different 'const' qualifiers
+  lfh.c
+D:\Programming\C\OTUS_C2205\HW1\lfh.c(4,43): warning C4028: formal parameter 1 different from declaration
+D:\Programming\C\OTUS_C2205\HW1\lfh.c(10,57): warning C4090: 'return': different 'const' qualifiers
+  main.c
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 9 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  01_Lesson_3.vcxproj -> D:\Programming\C\OTUS_C2205\HW1\x64\Release\01_Lesson_3.exe

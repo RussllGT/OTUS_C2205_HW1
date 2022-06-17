@@ -1,11 +1,13 @@
 #include <stdio.h>
-#include <stdint.h> 
+#include <stdlib.h>
+#include <string.h> 
 #include <malloc.h>
+#include <errno.h>
 #include "zipreadmacro.h"
 #include "eocdr.h"
 #include "cdfh.h"
 #include "lfh.h"
-//5 3 a1
+//1 3 5 a1
 
 /// <summary>
 /// Функция определяет размер файла
@@ -23,14 +25,16 @@ int main(int argc, char* argv[])
 {
     if (argc < 2)
     {
-        printf("Target file not specified\n"); //Если менее 2 аргументов выдаём сообщение и закрываем программу
+        printf("Error: Target file not specified\n"); //Если менее 2 аргументов выдаём сообщение и закрываем программу
         return 0;
     }
     
     FILE* file = fopen(argv[1], "rb"); //Чтение файла из агрумента командной строки
     if (!file) //Если файл не существует
     {
-        printf("File doesn't exists\n"); // Выводим на консоль сообщение
+        char* errorbuf = strerror(errno);
+        fprintf(stderr, "Error: %s\n", errorbuf);
+        errno = 0;
         return 0;
     }
 
