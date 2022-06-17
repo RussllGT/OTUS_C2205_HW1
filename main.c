@@ -3,11 +3,13 @@
 #include <string.h> 
 #include <malloc.h>
 #include <errno.h>
+#include <sys\stat.h>
+//#include <unistd.h>
 #include "zipreadmacro.h"
 #include "eocdr.h"
 #include "cdfh.h"
 #include "lfh.h"
-//1 3 5 a1
+//1 2 3 5 a1
 
 /// <summary>
 /// Функция определяет размер файла
@@ -38,14 +40,17 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    fpos_t start;
-    fgetpos(file, &start); //Запоминаем стартовую позицию указателся на поток
+    struct stat filestat;
+    stat(argv[1], &filestat);
+    size_t len = filestat.st_size;
+    /*if (S_ISREG(filestat.st_mode) == 0)
+    {
+        printf("Error: Target path is not a file\n");
+        return 0;
+    }*/
 
-    size_t len = get_file_size(file); //Находим длину файла
     uint8_t* buff = (uint8_t*)malloc(sizeof(uint8_t) * len); //Указатель на начало буфера
     uint8_t* endbuff = buff + len; //Указатель на конец буфера
-
-    fsetpos(file, &start); //Возвращаем указатель на поток в стартовую позицию
     for (int i = 0; i < len; i++) *(buff + i) = getc(file); //Считываем байты из потока в буфер
     fclose(file); //Закрываем файл
 
